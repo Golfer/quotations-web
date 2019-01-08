@@ -8,18 +8,48 @@ const API_QUOTATIONS = 'https://prod-quotations.herokuapp.com/api/v1/quotations'
 
 
 module.exports = {
+  entry: [
+    './src/index.js'
+  ],
+  output: {
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
   devtool: 'cheap-module-source-map',
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
     ]
   },
+  devServer: {
+    proxy: {
+      '/api': 'http://localhost:4000'
+    },
+    stats: {
+      children: false,
+      modules: false
+    }
+  },
+
+  // devServer: {
+  //   historyApiFallback: true,
+  //   watchOptions: { aggregateTimeout: 300, poll: 1000 },
+  //   headers: {
+  //     "Access-Control-Allow-Origin": "*",
+  //     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+  //     // "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+  //     'Access-Control-Allow-Headers': '*',
+  //   }
+  // },
   plugins: [
+    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       template: 'index.html'
     })
   ]
 }
+
+
 // module.exports = {
 //   entry: {
 //     app: './src/index.js'
