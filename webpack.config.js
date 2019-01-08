@@ -22,25 +22,15 @@ module.exports = {
     ]
   },
   devServer: {
-    proxy: {
-      '/api': 'http://localhost:4000'
-    },
-    stats: {
-      children: false,
-      modules: false
+    historyApiFallback: true,
+    watchOptions: { aggregateTimeout: 300, poll: 1000 },
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+      // "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+      'Access-Control-Allow-Headers': '*',
     }
   },
-
-  // devServer: {
-  //   historyApiFallback: true,
-  //   watchOptions: { aggregateTimeout: 300, poll: 1000 },
-  //   headers: {
-  //     "Access-Control-Allow-Origin": "*",
-  //     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-  //     // "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-  //     'Access-Control-Allow-Headers': '*',
-  //   }
-  // },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({

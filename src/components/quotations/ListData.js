@@ -13,7 +13,7 @@ class ListData extends React.Component {
       <div>
         <List component="nav">
           {this.props.quotations.map((quotation) =>
-            <ListItem button>
+            <ListItem button key={quotation.id}>
               <ListItemIcon>
                 <StarIcon />
               </ListItemIcon>

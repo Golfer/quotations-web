@@ -30,6 +30,7 @@
     "path": "^0.12.7",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.2.1",
+    "webpack-dev-middleware": "^3.5.0",
     "webpack-dev-server": "^3.1.14"
   },
   "engines": {
@@ -37,7 +38,7 @@
     "node": "11.x"
   },
   "scripts": {
-    "startdev": "webpack-dev-server --open --port 3005 --compress --mode development --colors",
+    "startdev": "webpack-dev-server --open --port 3005 --compress --mode development --colors --hot",
     "start": "node server.js",
     "dev": "webpack --mode development --progress",
     "build": "webpack --mode production  --progress",
