@@ -10,7 +10,6 @@ class ListData extends React.Component {
   render(){
     return(
       <div>
-        <span>{this.props.quotations.length}</span>
         <List component="nav">
           {this.props.quotations.map((quotation) =>
             <ListItem button key={quotation.id}>
