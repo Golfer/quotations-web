@@ -31,7 +31,7 @@ class Quotations extends Component {
     let content = !this.props.quotations.length > 0 ? <div><LinearProgress color="primary" /></div> :
       <div>
         <ListData quotations={this.props.quotations} pagination={this.props.meta.pagination}/>
-        <Button color="primary" size="large" onClick={() => this.handleFetchAdditionalRows()}> Load External data </Button>
+        {this.props.meta.pagination.next_page != undefined && <Button color="primary" size="large" onClick={() => this.handleFetchAdditionalRows()}> Load External data </Button>}
         {this.state.loading && <div>
           <LinearProgress color="primary"/>
           <LinearProgress color="secondary" />
