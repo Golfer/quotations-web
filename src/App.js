@@ -4,10 +4,10 @@ import CoreApp from './CoreApp'
 import { createStore, applyMiddleware } from 'redux'
 import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducers from './reducers'
-import initialState from './reducers/initialState'
 
-const store = createStore(rootReducers, initialState, applyMiddleware(thunk))
+const store = createStore(rootReducers, composeWithDevTools(applyMiddleware(thunk)))
 CoreApp.store = store;
 
 class App extends Component {
