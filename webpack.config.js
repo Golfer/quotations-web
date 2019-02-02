@@ -4,8 +4,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // ENV VARIABLES
-const API_QUOTATIONS = 'https://prod-quotations.herokuapp.com/api/v1/quotations'
-
+// const API_QUOTATIONS = 'https://prod-quotations.herokuapp.com/api/v1/quotations'
+const API_QUOTATIONS = 'https://http://199.247.18.85//api/v1/quotations'
 
 module.exports = {
   entry: [
